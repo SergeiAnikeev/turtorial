@@ -33,20 +33,20 @@ function Booklist() {
     <section className="booklist">
       {books.map((book) => {
         return (
-          <Book key={book.id} book={book}></Book>
+          <Book key={book.id} {...book}></Book>
         );
       })}
     </section>
   );
 }
 
-const Book = ({ book }) => {
+const Book = (props) => {
   //const { image, title, author } = props;
   return (
     <article className="book">
-      <img src={book.image} alt="Book cover" />
-      <Title bookTitle={book.title} />
-      <Author bookAuthor={book.author} />
+      <img src={props.image} alt="Book cover" />
+      <Title bookTitle={props.title} />
+      <Author bookAuthor={props.author} />
     </article>
   );
 };
