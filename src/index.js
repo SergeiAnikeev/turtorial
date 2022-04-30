@@ -1,9 +1,16 @@
 import ReactDOM from "react-dom";
 import React from "react";
+import './index.css';
 
 function Booklist() {
   return (
-    <section>
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
       <Book />
     </section>
   );
@@ -11,7 +18,7 @@ function Booklist() {
 
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <Image></Image>
       <Title />
       <Author />
@@ -21,13 +28,13 @@ const Book = () => {
 
 const Image = () => (
   <img
-    src='https://m.media-amazon.com/images/P/1501161938.01._SCLZZZZZZZ_SX500_.jpg'
-    alt='hukl'
+    src="https://images-na.ssl-images-amazon.com/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg"
+    alt="hukl"
   />
 );
 
-const Title = () => <h1>The Seven Husbands of Evelyn Hugo: A Novel</h1>;
+const Title = () => <h1>I Love You to the Moon and Back</h1>;
 
-const Author = () => <h4>Taylor Jenkins Reid</h4>;
+const Author = () => <h4>Amelia Hepworth</h4>;
 
 ReactDOM.render(<Booklist />, document.getElementById("root"));
