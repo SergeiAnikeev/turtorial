@@ -3,51 +3,50 @@ import React from "react";
 import "./index.css";
 
 //setup vars
-const firstBook = {
-  image:
-    "https://images-na.ssl-images-amazon.com/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg",
-  title: "I Love You to the Moon and Back",
-  autor: "Amelia Hepworth",
-};
-
-const secondBook = {
-  image:
-    "https://images-na.ssl-images-amazon.com/images/I/51x8pmqjY0L._SX376_BO1,204,203,200_.jpg",
-  title: "Oh, the Places You'll Go!",
-  autor: "Dr. Seuss",
-};
+const books = [
+  {
+    id:1,
+    image:
+      "https://images-na.ssl-images-amazon.com/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg",
+    title: "I Love You to the Moon and Back",
+    author: "Amelia Hepworth",
+  },
+  {
+    id:2,
+    image:
+      "https://images-na.ssl-images-amazon.com/images/I/51x8pmqjY0L._SX376_BO1,204,203,200_.jpg",
+    title: "Oh, the Places You'll Go!",
+    author: "Dr. Seuss",
+  },
+  {
+    id:3,
+    image:
+      "https://images-na.ssl-images-amazon.com/images/I/51-PBKJ-vzL._SX329_BO1,204,203,200_.jpg",
+    title:
+      "Off with My Head",
+    author: "Stassi Schroeder"
+  },
+];
 
 function Booklist() {
   return (
     <section className="booklist">
-      <Book
-        image={firstBook.image}
-        title={firstBook.title}
-        author={firstBook.autor}
-      >
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Exercitationem obcaecati dolores totam repudiandae perferendis
-          provident fugiat eligendi, mollitia quis earum!
-        </p>
-      </Book>
-      <Book
-        image={secondBook.image}
-        title={secondBook.title}
-        author={secondBook.autor}
-      />
+      {books.map((book) => {
+        return (
+          <Book key={book.id} book={book}></Book>
+        );
+      })}
     </section>
   );
 }
 
-const Book = ({ image, title, author, children }) => {
+const Book = ({ book }) => {
   //const { image, title, author } = props;
   return (
     <article className="book">
-      <img src={image} alt="Book cover" />
-      <Title bookTitle={title} />
-      {children}
-      <Author bookAuthor={author} />
+      <img src={book.image} alt="Book cover" />
+      <Title bookTitle={book.title} />
+      <Author bookAuthor={book.author} />
     </article>
   );
 };

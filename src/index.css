@@ -35,3 +35,6 @@ body{
     color: red;
     letter-spacing: 5px;
 }
+.book p{
+    margin-top: 0.5rem;
+}
