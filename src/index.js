@@ -1,12 +1,13 @@
 import ReactDOM from "react-dom";
 import React from "react";
-import './index.css';
+import "./index.css";
 
 //setup vars
 const firstBook = {
-  image: "https://images-na.ssl-images-amazon.com/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg",
+  image:
+    "https://images-na.ssl-images-amazon.com/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg",
   title: "I Love You to the Moon and Back",
-  autor: "Amelia Hepworth"
+  autor: "Amelia Hepworth",
 };
 
 const secondBook = {
@@ -23,7 +24,13 @@ function Booklist() {
         image={firstBook.image}
         title={firstBook.title}
         author={firstBook.autor}
-      />
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Exercitationem obcaecati dolores totam repudiandae perferendis
+          provident fugiat eligendi, mollitia quis earum!
+        </p>
+      </Book>
       <Book
         image={secondBook.image}
         title={secondBook.title}
@@ -31,14 +38,15 @@ function Booklist() {
       />
     </section>
   );
-};
+}
 
-const Book = ({ image, title, author }) => {
+const Book = ({ image, title, author, children }) => {
   //const { image, title, author } = props;
   return (
     <article className="book">
       <img src={image} alt="Book cover" />
       <Title bookTitle={title} />
+      {children}
       <Author bookAuthor={author} />
     </article>
   );
